@@ -397,7 +397,7 @@ func signStartRefreshToken(interval int64) {
 		cs, master := ss.get(), &base.SignServers[0]
 		if (cs == nil || cs.URL != master.URL) && isServerAvaliable(master.URL) {
 			ss.set(master)
-			log.Infof("主签名服务器可用，已切换至主签名服务器 %v", cs.URL)
+			log.Infof("主签名服务器可用，已切换至主签名服务器 %v", master.URL)
 		}
 		cs = ss.get()
 		if cs == nil {
